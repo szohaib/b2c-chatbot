@@ -6,7 +6,7 @@ module.exports = processPostback = ((event) => {
     const senderId = event.sender.id;
     const payload = event.postback.payload;
 
-    if (payload === 'WELCOME') {
+    if (payload === 'GET_STARTED_PAYLOAD') {
         request({
             url: 'https://graph.facebook.com/v2.6/' + senderID,
             qs: {
