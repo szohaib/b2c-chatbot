@@ -1,6 +1,7 @@
 const processPostback = require('../processes/postback');
 const processesMessage = require('../processes/messages');
 
+
 module.exports = ((app, chalk) => {
     app.get('/webhook', (req, res) => {
         if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
