@@ -8,7 +8,7 @@ module.exports = processPostback = ((event) => {
 
     if (payload === 'WELCOME') {
         request({
-            url: 'https://graph.facebook.com/v2.6/' + senderID,
+            url: 'https://graph.facebook.com/v2.6/' + senderId,
             qs: {
                 access_token: process.env.PAGE_ACCESS_TOKEN,
                 fields: "first_name"
