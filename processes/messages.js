@@ -7,7 +7,7 @@ const sendMessage = sendMessageMethods.methods.sendMessage;
 
 let processMessage = ((event) => {
 
-    if (event.message.is_echo) {
+    if (!event.message.is_echo) {
         const message = event.message;
         const senderId = event.sender.id;
 
