@@ -15,6 +15,10 @@ app.use(bodyParser.json());
 //Setting Up App Routes
 require('./routes/webhook-verify')(app);
 
+app.post("/onClose" , (req , res) => {
+    console.log("App Request" , req)
+})
+
 //Launching App
 
 app.listen(app.get('port') , () => {
