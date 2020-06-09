@@ -1,5 +1,8 @@
-const processPostback = require('../processes/postback');
-const processMessage = require('../processes/messages');
+const processPostbackMethods = require('../processes/postback');
+const processMessageMethods = require('../processes/messages');
+
+const processPostback = processPostbackMethods.methods.processPostback;
+const processMessage = processMessageMethods.methods.processMessage;
 
 
 module.exports = ((app, chalk) => {

@@ -1,8 +1,14 @@
 const request = require('request');
-const senderAction = require('../templates/senderAction');
-const sendMessage = require('../templates/sendMessage');
+const senderActionMethods = require('../templates/senderAction');
+const sendMessageMethods = require('../templates/sendMessage');
 
-module.exports = processPostback = ((event) => {
+const senderAction = senderActionMethods.methods.senderAction;
+const sendMessage = sendMessageMethods.methods.sendMessage;
+
+
+
+const processPostback = ((event) => {
+
     const senderId = event.sender.id;
     const payload = event.postback.payload;
     console.log("payload", event.postback.payload)
@@ -51,3 +57,10 @@ module.exports = processPostback = ((event) => {
         }))
     }
 })
+
+
+module.exports = {
+    methods : {
+        processPostback
+    }
+}

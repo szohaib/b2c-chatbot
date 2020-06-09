@@ -1,6 +1,6 @@
 const request = require('request');
 
-let sendMessage = ((recipientId, message) => {
+const sendMessage = ((recipientId, message) => {
     return new Promise((resolve, reject) => {
         request({
             url: 'https://graph.facebook.com/v7.0/me/messages',
@@ -22,5 +22,7 @@ let sendMessage = ((recipientId, message) => {
 })
 
 module.exports = {
-    sendMessage : sendMessage
+    methods: {
+        sendMessage
+    }
 }

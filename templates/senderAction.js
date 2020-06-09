@@ -1,6 +1,6 @@
 const request = require('request');
 
-module.exports = senderAction = (recipientId) => {
+const senderAction = (recipientId) => {
     request({
         url: 'https://graph.facebook.com/v7.0/me/messages',
         qs: { access_token: process.env.PAGE_ACCESS_TOKEN },
@@ -14,4 +14,10 @@ module.exports = senderAction = (recipientId) => {
             console.log("Error sending message: " + response.error);
         }
     }))
+}
+
+module.exports = {
+    methods : {
+        senderAction
+    }
 }
