@@ -62,7 +62,9 @@ const processPostback = ((event) => {
                                         payload: "chat"
                                     }
                                 ]
+                            }
                         ]
+
                     }
                 }
             }
