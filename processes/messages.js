@@ -15,7 +15,12 @@ let processMessage = ((event) => {
         console.log("Message is : " + JSON.stringify(message));
 
         if (message.text) {
-            console.log(message)
+            console.log("Response 2" , message)
+            // if(message.quick_reply){
+            //     if(message.quick_reply.payload === 'showMenu'){
+
+            //     }
+            // }
         }
     }
 

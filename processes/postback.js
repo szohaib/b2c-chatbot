@@ -39,9 +39,9 @@ const processPostback = ((event) => {
                 text: "Pick a color:",
                 quick_replies: [
                     {
-                        content_type: "text",
+                        type: "web_url",
                         title: "Show Menu",
-                        payload: "showMenu",
+                        url: "www.google.com",
                     }, {
                         content_type: "text",
                         title: "Talk to Agent",
