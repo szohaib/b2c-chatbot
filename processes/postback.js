@@ -44,7 +44,7 @@ const processPostback = ((event) => {
                         elements: [
                             {
                                 title: "Welcome!",
-                                image_url: "https://petersfancybrownhats.com/company_image.png",
+                                image_url: "https://static.businessworld.in/article/article_extra_large_image/1544520138_aszxbk_thickkk.jpeg",
                                 subtitle: "Best bakery items in town",
                                 default_action: {
                                     type: "web_url",
