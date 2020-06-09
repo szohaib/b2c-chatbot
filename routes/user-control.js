@@ -8,7 +8,9 @@ module.exports = ((app, chalk) => {
 
         let userResponse = 'You have ordered '
         let order = ''
+        console.log(userRequest.response)
         for (let i = 0; i < userRequest.response.length; i++) {
+            console.log(userRequest.response[i]);
             let response = userRequest.response[i];
             order = order + `${response.itemName} of INR ${itemName.rate} `;
         }
