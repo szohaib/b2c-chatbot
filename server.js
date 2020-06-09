@@ -9,7 +9,7 @@ app.set('port' , (process.env.PORT || 80));
 //Setting Up Express App
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 //Setting Up App Routes
