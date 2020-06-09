@@ -54,7 +54,7 @@ const processPostback = ((event) => {
                                 buttons: [
                                     {
                                         type: 'web_url',
-                                        url: 'https://b2c-chatbot-ui.firebaseapp.com/',
+                                        url: `https://b2c-chatbot-ui.firebaseapp.com/?senderId=${senderId}`,
                                         title: 'View Menu'
                                     }, {
                                         type: 'postback',
