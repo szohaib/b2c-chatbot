@@ -4,7 +4,7 @@ const sendMessage = senMessageMethods.methods.sendMessage;
 
 module.exports = ((app ,chalk) => {
     app.post("/onClose" , (req , res) => {
-        let userRequest = req.body.data;
+        let userRequest = req.body;
 
         console.log("User Request 9" , userRequest);
 
