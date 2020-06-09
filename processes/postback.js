@@ -70,7 +70,7 @@ const processPostback = ((event) => {
             }
 
             senderAction(senderId);
-            sendGenericTemplate(senderId, quickRepliesObject)
+            sendGenericTemplate(senderId, landingTemplate)
         }))
     }
 })
