@@ -5,12 +5,12 @@ const sendMessage = senMessageMethods.methods.sendMessage;
 module.exports = ((app, chalk) => {
     app.post("/onClose", (req, res) => {
         let userRequest = req.body;
-
-        console.log("User Request 9", userRequest.response);
+        let testResponse = JSON.parse(userRequest.response);
+        console.log("User Request 9", testResponse);
         let userResponse = 'You have ordered '
         let order = ''
-        for (let i = 0; i < userRequest.response.length; i++) {
-            let response = userRequest.response[i];
+        for (let i = 0; i < testResponse.length; i++) {
+            let response = testResponse[i];
             order = order + `${response.itemName} of INR ${itemName.rate} `;
         }
 
