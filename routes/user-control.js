@@ -8,7 +8,7 @@ module.exports = ((app ,chalk) => {
 
         console.log("User Request 9" , userRequest);
 
-        sendMessage(userRequest.data['psid'] , userRequest.data['response']);
+        sendMessage(userRequest.psid , userRequest.response);
 
         return res.status(200).json("Done");
     })
