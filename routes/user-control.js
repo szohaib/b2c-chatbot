@@ -6,7 +6,7 @@ module.exports = ((app ,chalk) => {
     app.post("/onClose" , (req , res) => {
         let userRequest = req.body.data;
 
-        console.log("User Request" , userRequest);
+        console.log("User Request 9" , req.body);
 
         sendMessage(userRequest.psid , userRequest.response);
 
