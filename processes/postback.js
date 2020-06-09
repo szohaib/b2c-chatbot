@@ -5,7 +5,7 @@ const sendMessage = require('../templates/sendMessage');
 module.exports = processPostback = ((event) => {
     const senderId = event.sender.id;
     const payload = event.postback.payload;
-    console.log("payload" , event.postback.payload)
+    console.log("payload", event.postback.payload)
     if (payload === 'WELCOME') {
         request({
             url: 'https://graph.facebook.com/v2.6/' + senderId,
@@ -26,17 +26,27 @@ module.exports = processPostback = ((event) => {
                 greeting = "Hello " + name + ". ";
             }
 
-            let message = greeting + "Welcome to Healthbot. Hope you are       doing good today";
-            let message2 = "I am your nutrition tracker :-)"
-            let message3 = "please type in what you ate like: I ate chicken birayani and 2 chapatis with dal.";
+            let message = greeting + "Welcome to Thickshake Factory. Hope you are doing good today";
+            let message2 = "Please select from below:"
+
+            let quickRepliesObject = {
+                text: "Pick a color:",
+                quick_replies: [
+                    {
+                        content_type: "text",
+                        title: "Show Menu",
+                        payload: "showMenu",
+                    }, {
+                        content_type: "text",
+                        title: "Talk to Agent",
+                        payload: "talkToAgent",
+                    }
+                ]
+            }
 
             senderAction(senderId);
             sendMessage(senderId, { text: message }).then(() => {
-                sendMessage(senderId, { text: message2 }).then(() => {
-                    sendMessage(senderId, { text: message3 }).then(() => {
-                        sendMessage(senderId, { text: '🎈' });
-                    })
-                });
+                sendMessage(senderId, quickRepliesObject)
             });
         }))
     }

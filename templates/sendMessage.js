@@ -1,6 +1,6 @@
 const request = require('request');
 
-module.exports = sendMessage = ((recipientId, message) => {
+let sendMessage = ((recipientId, message) => {
     return new Promise((resolve, reject) => {
         request({
             url: 'https://graph.facebook.com/v7.0/me/messages',
@@ -8,22 +8,7 @@ module.exports = sendMessage = ((recipientId, message) => {
             method: 'POST',
             json: {
                 recipient: { id: recipientId },
-                "message": {
-                    "text": "Pick a color:",
-                    "quick_replies": [
-                        {
-                            "content_type": "text",
-                            "title": "Red",
-                            "payload": "c1",
-                            "image_url": "http://example.com/img/red.png"
-                        }, {
-                            "content_type": "text",
-                            "title": "Green",
-                            "payload": "c2",
-                            "image_url": "http://example.com/img/green.png"
-                        }
-                    ]
-                }
+                message: message
             }
         }, ((error, response, body) => {
             if (error) {
@@ -35,3 +20,7 @@ module.exports = sendMessage = ((recipientId, message) => {
         }))
     })
 })
+
+module.exports = {
+    sendMessage : sendMessage
+}
