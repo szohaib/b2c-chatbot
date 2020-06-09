@@ -4,9 +4,9 @@ const sendMessage = senMessageMethods.methods.sendMessage;
 
 module.exports = ((app, chalk) => {
     app.post("/onClose", (req, res) => {
-        let userRequest = req.body;
+        let userRequest = JSON.parse(req.body);
 
-        console.log("User Request 9", userRequest);
+        console.log("User Request 9", userRequest.response);
         let userResponse = 'You have ordered '
         let order = ''
         for (let i = 0; i < userRequest.response.length; i++) {
