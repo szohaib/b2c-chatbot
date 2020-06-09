@@ -13,7 +13,7 @@ module.exports = ((app, chalk) => {
             console.log(userRequest.response[i]);
             let response = userRequest.response[i];
             console.log(response)
-            order = order + `${response.itemName} of INR ${itemName.rate} `;
+            order = order + `${itemName} of INR ${rate} `;
         }
 
 
