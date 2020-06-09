@@ -1,10 +1,11 @@
 const request = require('request');
 const senderActionMethods = require('../templates/senderAction');
 const sendMessageMethods = require('../templates/sendMessage');
+const sendGenericTemplateMethods = require("../templates/sendGenericTemplate");
 
 const senderAction = senderActionMethods.methods.senderAction;
 const sendMessage = sendMessageMethods.methods.sendMessage;
-
+const sendGenericTemplate = sendGenericTemplateMethods.methods.sendGenericTemplate;
 
 
 const processPostback = ((event) => {
@@ -35,32 +36,46 @@ const processPostback = ((event) => {
             let message = greeting + "Welcome to Thickshake Factory. Hope you are doing good today";
             let message2 = "Please select from below:"
 
-            let quickRepliesObject = {
-                text: "Pick a color:",
-                quick_replies: [
-                    {
-                        type: "web_url",
-                        title: "Show Menu",
-                        url: "www.google.com",
-                    }, {
-                        content_type: "text",
-                        title: "Talk to Agent",
-                        payload: "talkToAgent",
+            let landingTemplate = {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "generic",
+                        elements: [
+                            {
+                                title: "Welcome!",
+                                image_url: "https://petersfancybrownhats.com/company_image.png",
+                                subtitle: "Best bakery items in town",
+                                default_action: {
+                                    type: "web_url",
+                                    url: "https://petersfancybrownhats.com/view?item=103",
+                                    webview_height_ratio: "tall"
+                                },
+                                buttons: [
+                                    {
+                                        type: 'web_url',
+                                        url: 'https://petersfancybrownhats.com',
+                                        title: 'View Menu'
+                                    }, {
+                                        type: 'postback',
+                                        title: 'Start Chatting',
+                                        payload: "chat"
+                                    }
+                                ]
+                        ]
                     }
-                ]
+                }
             }
 
             senderAction(senderId);
-            sendMessage(senderId, { text: message }).then(() => {
-                sendMessage(senderId, quickRepliesObject)
-            });
+            sendGenericTemplate(senderId, quickRepliesObject)
         }))
     }
 })
 
 
 module.exports = {
-    methods : {
+    methods: {
         processPostback
     }
 }
