@@ -6,7 +6,7 @@ module.exports = ((app, chalk) => {
     app.post("/onClose", (req, res) => {
         let userRequest = req.body;
 
-        let userResponse = 'You have ordered';
+        let userResponse = 'YOUR ORDER 👇';
         let order = '';
 
         let quickReplies = {
