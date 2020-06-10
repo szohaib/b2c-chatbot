@@ -57,7 +57,7 @@ module.exports = ((app, chalk) => {
                     order_number: "12345678902",
                     currency: "INR",
                     timestamp: "1428444852",
-                    payment_method:"",  
+                    payment_method:"v",  
                     summary : {
                         total_cost : 500
                     },
