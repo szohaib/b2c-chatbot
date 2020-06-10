@@ -40,7 +40,7 @@ module.exports = ((app, chalk) => {
 
             userOrder.push({
                 title: response.itemName,
-                image_url: "https://static.businessworld.in/article/article_extra_large_image/1544520138_aszxbk_thickkk.jpeg",
+                image_url: response.imageURL,
                 subtitle: response.rate,
                 buttons: genericTemplateButtons
             })
