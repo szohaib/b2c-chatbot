@@ -20,7 +20,7 @@ module.exports = ((app, chalk) => {
                 },
                 {
                     content_type: 'text',
-                    title: 'No, I want to Re-Order',
+                    title: 'No, Re-Order',
                     payload: 'reOrder',
                     image_url: 'https://lh3.googleusercontent.com/proxy/PUlegG-KJX9Jk_DTQ8kHoCIyYiwyn5muIM94Hf6i_Lr2YaavJw2jT7mZ90gfgg9Up5CYsBtP2QcXNFa6TTQJb1KcdB4VqlvvNK5roxd1u1-PS6pVdv0qOe-QEYdGmVgKmYO7VDroajmv5RviZ5Q4kL-lZKGyq6Bvgp2fMuHrs9YDDdA',
                 }
@@ -40,9 +40,11 @@ module.exports = ((app, chalk) => {
 
             userOrder.push({
                 title: response.itemName,
-                image_url: response.imageURL,
-                subtitle: response.rate,
-                buttons: genericTemplateButtons
+                subtitle: "Thickshake",
+                quantity: 2,
+                price: response.rate,
+                currency: "INR",
+                image_url: response.imageURL
             })
         }
 
@@ -50,7 +52,21 @@ module.exports = ((app, chalk) => {
             attachment: {
                 type: "template",
                 payload: {
-                    template_type: "generic",
+                    template_type: "receipt",
+                    recipient_name: "Stephane Crozatier",
+                    order_number: "12345678902",
+                    currency: "INR",
+                    timestamp: "1428444852",
+                    adjustments: [
+                        {
+                            name: "New Customer Discount",
+                            amount: 20
+                        },
+                        {
+                            name: "10/- Off Coupon",
+                            amount: 10
+                        }
+                    ],
                     elements: userOrder
 
                 }
