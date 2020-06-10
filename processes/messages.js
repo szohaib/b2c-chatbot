@@ -16,11 +16,11 @@ let processMessage = ((event) => {
 
         if (message.text) {
             console.log("Response 2" , message)
-            // if(message.quick_reply){
-            //     if(message.quick_reply.payload === 'showMenu'){
-
-            //     }
-            // }
+            if(message.quick_reply){
+                if(message.quick_reply.payload === 'orderFinish'){
+                    
+                }
+            }
         }
     }
 
