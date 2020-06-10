@@ -57,6 +57,10 @@ module.exports = ((app, chalk) => {
                     order_number: "12345678902",
                     currency: "INR",
                     timestamp: "1428444852",
+                    payment_method:"",  
+                    summary : {
+                        total_cost : 500
+                    },
                     adjustments: [
                         {
                             name: "New Customer Discount",
